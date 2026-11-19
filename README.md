@@ -39,18 +39,23 @@ To write and execute Assembly Language Programs to perform arithmetic operations
 CODE SEGMENT
 ASSUME CS:CODE, DS:CODE
 ORG 1000H
-MOV CL,00H
-MOV AX,1234H
-MOV BX,1234H
-ADD AX,BX
-JNC L1
-INC CL
-L1:MOV SI,1200H
-MOV [SI],AX
-MOV [SI+2],CL
-MOV AH,4CH
-INT 21H
+START:
+    MOV AX, CODE
+    MOV DS, AX
+    MOV SI, 2000H        
+    MOV AX, [SI]         
+    MOV BX, [SI+02H]     
+    MOV CL, 00H          
+    ADD AX, BX           
+    JNC L1               
+    INC CL               
+L1:
+    MOV [SI+04H], AX     
+    MOV [SI+06H], CL     
+    MOV AH, 4CH          
+    INT 21H
 CODE ENDS
+END START
 END
 ```
 
@@ -93,21 +98,25 @@ END
 #### Program
 ```asm
 CODE SEGMENT
-ASSUME CS: CODE, DS: CODE
+ASSUME CS:CODE, DS:CODE
 ORG 1000H
-MOV SI,2000H
-MOV CL,00H
-MOV AX,[SI]
-MOV BX,[SI+02H]
-SUB AX,BX
-JNC L1
-INC CL
+START:
+    MOV AX, CODE
+    MOV DS, AX
+    MOV SI, 2000H        
+    MOV AX, [SI]         
+    MOV BX, [SI+02H]     
+    MOV CL, 00H          
+    SUB AX, BX           
+    JNC L1               
+    INC CL               
 L1:
-MOV [SI+04H],AX
-MOV [SI+06H],CL
-MOV AH,4CH
-INT 21H
+    MOV [SI+04H], AX     
+    MOV [SI+06H], CL     
+    MOV AH, 4CH          
+    INT 21H
 CODE ENDS
+END START
 END
 ```
 
@@ -152,19 +161,22 @@ END
 
 ```asm
 CODE SEGMENT
-ASSUME CS: CODE, DS: CODE
+ASSUME CS:CODE, DS:CODE
 ORG 1000H
-MOV SI,2000H
-MOV DX,0000H
-MOV AX,[SI]
-MOV BX,[SI+02H]
-MUL BX
-MOV [SI+04H],AX
-MOV [SI+06H],DX
-MOV AH,4CH
-INT 21H
+START:
+    MOV AX, CODE
+    MOV DS, AX
+    MOV SI,2000H
+    MOV DX,0000H
+    MOV AX,[SI]
+    MOV BX,[SI+02H]
+    MUL BX
+    MOV [SI+04H],AX
+    MOV [SI+06H],DX
+    MOV AH,4CH
+    INT 21H
 CODE ENDS
-END
+END START
 ```
 
 #### Output Table
@@ -205,18 +217,21 @@ END
 
 ```asm
 CODE SEGMENT
-ASSUME CS: CODE, DS: CODE
+ASSUME CS:CODE, DS:CODE
 ORG 1000H
-MOV SI,2000H
-MOV DX,0000H
-MOV AX,[SI]
-MOV BX,[SI+02H]
-DIV BX
-MOV [SI+04H],AX
-MOV [SI+06H],DX
-MOV AH,4CH
-INT 21H
+START:
+    MOV AX, CODE
+    MOV DS, AX
+    MOV SI,2000H
+    MOV DX,0000H        
+    MOV AX,[SI]         
+    MOV BX,[SI+02H]     
+    DIV BX              
+    MOV [SI+04H],AX     
+    MOV [SI+06H],DX     
+    INT 3               
 CODE ENDS
+END START
 END
 ```
 
