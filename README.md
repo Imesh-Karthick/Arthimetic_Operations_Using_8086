@@ -19,18 +19,34 @@ To write and execute Assembly Language Programs to perform arithmetic operations
 
 #### Algorithm
 
-1. Initialize memory location in HL register.
-2. Store 1st data.
-3. Increment HL to enter 2nd data.
-4. Move 2nd number to accumulator.
-5. Decrement HL.
-6. Add value in memory with accumulator.
-7. Store result.
-8. Stop.
+1.Start the program.
+
+2.Initialize the Data Segment (DS).
+
+3.Load memory address 2000H into SI.
+
+4.Load the first number into AX.
+
+5.Load the second number into BX.
+
+6.Clear CL to store the carry.
+
+7.Add AX and BX using ADD.
+
+8.Check the Carry Flag.
+
+9.If carry is generated, increment CL.
+
+10.Store the sum (AX) into 2004H.
+
+11.Store the carry (CL) into 2006H.
+
+12.Terminate the program.
 
 
 ## FLOW CHART
-<img width="707" height="1024" alt="image" src="https://github.com/user-attachments/assets/b5a7062d-e294-47cd-9683-a40de25e82de" />
+<img width="942" height="1412" alt="image" src="https://github.com/user-attachments/assets/cf5da4d8-fbfb-405a-b962-4f36f101d155" />
+
 
 
 #### Program
@@ -84,15 +100,34 @@ END
 
 #### Algorithm
 
-1. Initialize memory and store 1st data.
-2. Increment to get 2nd data.
-3. Move 2nd data to accumulator.
-4. Subtract memory content.
-5. Store result.
+1.	Start the program.
+
+2.	Initialize the Data Segment (DS).
+
+3.	Load memory address 2000H into SI.
+
+4.	Load the first number into AX.
+
+5.	Load the second number into BX.
+
+6.	Clear CL to store the borrow.
+
+7.	Subtract BX from AX using SUB.
+
+8.	Check the Carry Flag (borrow).
+
+9.	If borrow occurs, increment CL.
+
+10.	Store the difference (AX) into 2004H.
+
+11.	Store the borrow (CL) into 2006H.
+
+12.	Terminate the program.
+
 
 ## FLOWCHART
 
-<img width="578" height="797" alt="image" src="https://github.com/user-attachments/assets/564c3c7a-33ce-4a1c-8920-beb5c24b9b47" />
+<img width="929" height="1394" alt="image" src="https://github.com/user-attachments/assets/36981e27-3f0f-4507-844b-5c8e7a461faa" />
 
 
 #### Program
@@ -146,14 +181,28 @@ END
 
 #### Algorithm
 
-1. Initialize memory and store operands.
-2. Move operands to registers.
-3. Multiply.
-4. Store result.
+1.	Start the program.
+
+2.	Initialize the Data Segment (DS).
+
+3.	Load memory address 2000H into SI.
+
+4.	Load the first 16-bit number into AX.
+
+5.	Load the second 16-bit number into BX.
+
+6.	Multiply AX by BX using MUL.
+
+7.	Store the lower 16 bits (AX) into 2004H.
+
+8.	Store the upper 16 bits (DX) into 2006H.
+
+9.	Terminate the program using INT 21H.
+
 
 ##FLOWCHART
 
-<img width="569" height="906" alt="image" src="https://github.com/user-attachments/assets/88be88ff-2896-4a88-b73d-84ccffd2fcf9" />
+<img width="989" height="1484" alt="image" src="https://github.com/user-attachments/assets/239c8029-a75f-4b6e-848e-032654372237" />
 
 
 
@@ -205,12 +254,30 @@ END START
 
 #### Algorithm
 
-1. Load memory location of operands.
-2. Perform division.
-3. Store result.
+1.	Start the program.
+
+2.	Initialize the Data Segment (DS).
+
+3.	Load the starting memory address (2000H) into SI.
+
+4.	Clear register DX before performing division.
+
+5.	Load the 16-bit dividend from memory location 2000H into AX.
+
+6.	Load the 16-bit divisor from memory location 2002H into BX.
+
+7.	Divide DX:AX by BX using DIV.
+
+8.	Store the quotient (AX) into memory location 2004H.
+
+9.	Store the remainder (DX) into memory location 2006H.
+
+10.	Stop/terminate the program.
+
 
    ## FLOWCHART
-<img width="1065" height="802" alt="image" src="https://github.com/user-attachments/assets/25b4a483-0d42-494b-8639-1af3ea17191b" />
+<img width="920" height="1114" alt="image" src="https://github.com/user-attachments/assets/392f8c80-8dc2-4912-b064-8fb780711047" />
+
 
 
 #### Program
